@@ -31,6 +31,10 @@ describe("Sidebar Navigation", () => {
         .should("have.attr", "href", "/dashboard/settings");
     });
 
+    it("opens the user's email app", () => {
+      cy.get("nav").contains("Support").click();
+    });
+
     it("is collapsible", () => {
       // collapse navigation
       cy.get("nav").contains("Collapse").click();
