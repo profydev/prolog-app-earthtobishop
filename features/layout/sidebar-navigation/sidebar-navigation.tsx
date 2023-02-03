@@ -149,6 +149,8 @@ const CollapseMenuItem = styled(MenuItemButton)`
 
   @media (min-width: ${breakpoint("desktop")}) {
     display: flex;
+    transform: ${({ isCollapsed }) =>
+      isCollapsed ? "rotate(180deg)" : "rotate(0)"};
   }
 `;
 
