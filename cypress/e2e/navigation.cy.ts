@@ -32,7 +32,7 @@ describe("Sidebar Navigation", () => {
     });
 
     it("opens the user's email app", () => {
-      cy.get("nav").contains("Support").click();
+      cy.get("nav").contains("Support").invoke("removeAttr", "target").click();
     });
 
     it("is collapsible", () => {
