@@ -32,13 +32,14 @@ describe("Sidebar Navigation", () => {
     });
 
     it("opens the user's email app", () => {
-      cy.get("nav")
-        .contains("Support")
-        .invoke("on", "click", (e: { preventDefault: () => void }) => {
-          console.log("stop the default browser behavior");
-          e.preventDefault();
-        })
-        .click();
+      cy.window().then((win) => {
+        cy.stub(win, "open").as("open");
+      });
+      cy.get("nav").contains("Support").click();
+      cy.get("@open").should(
+        "have.been.calledOnceWithExactly",
+        "mailto:support@prolog-app.com?subject=Support%20Request"
+      );
     });
 
     it("is collapsible", () => {
