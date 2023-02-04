@@ -197,8 +197,7 @@ export function SidebarNavigation() {
               isCollapsed={isSidebarCollapsed}
               onClick={() =>
                 window.open(
-                  "mailto:support@prolog-app.com?subject=Support%20Request",
-                  "_blank"
+                  "mailto:support@prolog-app.com?subject=Support%20Request"
                 )
               }
             />
